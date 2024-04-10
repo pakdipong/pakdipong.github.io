@@ -2,7 +2,7 @@
 
 * {
     font-family: 'Kanit', sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 16px;
     font-style: normal;
 }
@@ -26,9 +26,10 @@
     display: block;
     width: 100%;
     object-fit: cover;
-    height: 480px;
+    height: 600px;
 }
 
+.popular-products span,
 .new-products span{
     opacity: .75;
     display: flex;
@@ -39,20 +40,21 @@
     top: 0;
     right: 0;
     transform: translateY(-50%);
-    height: 32px;
-    width: 32px;
+    height: 48px;
+    width: 48px;
     border-radius: 50%;
     cursor: pointer;
     user-select: none;
     transition: .15s;
 }
 
+.popular-products span:hover,
 .new-products span:hover{
 opacity: 1;
 }
 
 #left {
-    margin-right: 40px;
+    margin-right: 58px;
 }
 
 .slider {
@@ -81,4 +83,10 @@ opacity: 1;
 
 .unliststyle li a {
     text-decoration: none;
+}
+
+@media only screen and (max-width: 576px){
+    .banner-img{
+        height: 420px;
+    }
 }
