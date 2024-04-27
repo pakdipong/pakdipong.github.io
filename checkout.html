@@ -92,7 +92,7 @@
               </svg>
             </div>
             <input id="searchInput" class="form-control ps-5 border-0 rounded-pill text-bg-light" type="search"
-              placeholder="Search for products" aria-label="Search" onkeyup="search(event)">
+              placeholder="Search" aria-label="Search" onkeyup="search(event)">
           </div>
           <ul class="nav flex-row flex-nowrap justify-content-end align-items-center gap-3 ms-3">
             <li class="nav-item">
@@ -114,9 +114,7 @@
                   <line x1="3" x2="21" y1="6" y2="6" />
                   <path d="M16 10a4 4 0 0 1-8 0" />
                 </svg>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  5
-                  <span class="visually-hidden">bag</span>
+                <span style="display: none;" id="quantityInCart" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 </span>
               </a>
             </li>
@@ -144,7 +142,7 @@
     <div class="py-5">
       <div class="container-xxl gx-5 px-md-5">
         <div class="row">
-          <div class="col-12 col-md-7">
+          <div class="col-12 col-lg-7">
             <div class="row">
               <div class="col-6 col-sm">
                 <h5>SERVICES</h5>
@@ -174,7 +172,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-8 col-md-5 my-3 my-md-0">
+          <div class="col-sm-8 col-lg-5 my-3 my-lg-0">
             <form>
               <h5>NEWSLETTER</h5>
               <label for="inputEmail" class="form-label text-dark mt-0 mt-md-3">Enter your email address</label>

@@ -1,39 +1,4 @@
-const products = [{
-  id: 1,
-  name: 'Adidas',
-  type: 'เสื้อ',
-  price: 100,
-  imageUrl: 'https://via.placeholder.com/60x60',
-  about: 'about'
-}, {
-  id: 2,
-  name: 'Nike',
-  type: 'รองเท้า',
-  price: 500,
-  imageUrl: 'https://via.placeholder.com/60x60',
-  about: 'about'
-}, {
-  id: 3,
-  name: 'Nike',
-  type: 'รองเท้า',
-  price: 500,
-  imageUrl: 'https://via.placeholder.com/60x60',
-  about: 'about'
-}, {
-  id: 4,
-  name: 'Nike',
-  type: 'รองเท้า',
-  price: 500,
-  imageUrl: 'https://via.placeholder.com/60x60',
-  about: 'about'
-}, {
-  id: 5,
-  name: 'Nike',
-  type: 'รองเท้า',
-  price: 500,
-  imageUrl: 'https://via.placeholder.com/60x60',
-  about: 'about'
-}]
+import { products } from './products-data.js'
 
 let text = ''
 let count = 0
@@ -50,10 +15,10 @@ function productsList(product) {
   <div class="card border-0">
     <img src="${product.imageUrl}" class="card-img-top" alt="...">
     <div class="card-body p-0 mt-3">
-      <h5 class="text-dark">${product.name}</h5>
-      <h5 class="text-dark opacity-50">${product.type}</h5>
+      <div class="text-dark fw-medium">${product.name}</div>
+      <div class="text-dark opacity-50 fw-medium">${product.type}</div>
       <div class="d-flex my-3">
-        <h5>$${product.price}</h5>
+        <div class="text-dark fw-medium">$${product.price}</div class =>
       </div>
     </div>
   </div>
@@ -70,7 +35,7 @@ if (searchQuery != null) {
   searchFilter()
   document.getElementById("view").innerHTML = 'SEARCH' + `<h5>"${searchQuery}"</h5>`
   document.getElementById("count").innerHTML = count + ' products'
-} else{
+} else {
   document.getElementById("view").innerHTML = 'PRODUCTS'
 }
 
@@ -86,9 +51,8 @@ function searchFilter() {
     txtValue = a.textContent || a.innerText;
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
       count++
-      list[i].style.display = "";
     } else {
-      list[i].style.display = "none";
+      list[i].remove()
     }
   }
 }
