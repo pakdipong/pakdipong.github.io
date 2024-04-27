@@ -34,7 +34,7 @@ function showItem() {
     </a>
     </div>
     <div class="d-flex flex-column w-75">
-      <div class="d-flex justify-content-between flex-wrap">
+      <div class="d-flex justify-content-between">
         <div>
         <a class="item-link text-dark" href="detail.html?id=${item.id}">
           <div class="fw-medium">${item.name}</div>
