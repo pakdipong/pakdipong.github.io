@@ -19,7 +19,7 @@ function showItem() {
     itemsInCart.forEach(itemList)
   } else {
     text = "<div class='my-3 fw-medium'>Your cart is currently empty.</div>"
-    document.getElementById('checkoutButton').setAttribute("disabled","")
+    document.getElementById('checkoutButton').setAttribute("disabled", "")
     localStorage.removeItem("cart-items")
   }
 
@@ -42,10 +42,10 @@ function showItem() {
           <div class="fw-medium opacity-50">${item.type}</div>
           <div class="d-flex opacity-50">
             <div class="fw-medium">Quantity</div>
-            <input type="number" id="quantity" value="${item.quantity}" min="1" max="10" onchange="updateQuantity(${index})" class="text-center border-0 ms-1">
+            <input type="number" id="quantity" value="${item.quantity}" min="1" max="100" onchange="updateQuantity(${index})" class="text-center border-0 ms-1">
           </div>
         </div>
-        <div class="fw-medium">${itemPrice.toLocaleString("en-US", {style:"currency", currency:"USD"})}</div>
+        <div class="fw-medium">${itemPrice.toLocaleString("en-US", { style: "currency", currency: "USD" })}</div>
       </div>
       <div class="fs-5 fw-medium mt-auto">
         <a onclick="removeItemInCart(${index})" class="btn p-0 border-0 opacity-70">
@@ -66,11 +66,11 @@ function showItem() {
 
 function quantityInCart() {
   const all = itemsInCart.reduce((acc, item) => acc + item.quantity, 0)
-  
+
   const quantityInCart = document.getElementById('quantityInCart')
 
   if (all > 0) {
-    localStorage.setItem('quantityInCart',all)
+    localStorage.setItem('quantityInCart', all)
     quantityInCart.style.display = ''
   } else {
     localStorage.removeItem('quantityInCart')
@@ -82,8 +82,8 @@ function quantityInCart() {
 function summaryPrice() {
   let sumPrice = itemsInCart.reduce((acc, item) => acc + (item.price * item.quantity), 0)
   let text
-  sumPrice > 0? text = sumPrice.toLocaleString("en-US", {style:"currency", currency:"USD"}): text = '-'
-  
+  sumPrice > 0 ? text = sumPrice.toLocaleString("en-US", { style: "currency", currency: "USD" }) : text = '-'
+
   document.getElementById('subtotal').innerHTML = text
   document.getElementById('total').innerHTML = text
 }
@@ -96,16 +96,19 @@ function removeItemInCart(index) {
 }
 
 function updateQuantity(index) {
-  const quantity = document.querySelectorAll('#quantity')[index].value
-  if (quantity != '') {
-    itemsInCart[index].quantity = parseInt(quantity)
-  } else {
+  let quantity = document.querySelectorAll('#quantity')[index].value
+
+  quantity = parseInt(quantity)
+
+  if (!quantity) {
     itemsInCart[index].quantity = 1
+  } else {
+    itemsInCart[index].quantity = quantity
   }
   localStorage.setItem('cart-items', JSON.stringify(itemsInCart))
   loadCart()
 }
 
-function goToCheckout(){
+function goToCheckout() {
   window.location.assign('checkout.html')
 }
