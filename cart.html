@@ -114,7 +114,8 @@
                   <line x1="3" x2="21" y1="6" y2="6" />
                   <path d="M16 10a4 4 0 0 1-8 0" />
                 </svg>
-                <span style="display: none;" id="quantityInCart" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                <span style="display: none;" id="quantityInCart"
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 </span>
               </a>
             </li>
@@ -139,14 +140,21 @@
     <div class="mt-3 mt-md-5">
       <div class="container-xxl gx-5">
         <div class="row mx-lg-auto" style="max-width: 1100px;">
-          <div class="col-lg-8">
-            <div class="fs-3 fw-medium">CART</div>
+          <div class="col-lg-8 pe-lg-5">
+            <h4>Cart</h4>
             <div id="cartItem">
             </div>
           </div>
           <div class="col-lg-4">
-            <div class="fs-3 fw-medium">SUMMARY</div>
+            <h4 class="mt-3 mt-md-0">Summary</h4>
             <div class="my-3">
+              <div class="mb-2">
+                <div class="fw-medium mb-2">Discount coupons</div>
+                <div class="d-flex gap-2">
+                  <input type="text" class="form-control" placeholder="">
+                  <button type="submit" class="btn btn-outline-success">Apply</button>
+                </div>
+              </div>
               <div class="d-flex justify-content-between mb-2">
                 <div class="fw-medium">Subtotal</div>
                 <div id="subtotal" class="fw-medium"></div>
@@ -160,7 +168,8 @@
                 <div id="total" class="fw-medium"></div>
               </div>
               <div class="mt-3">
-                <button id="checkoutButton" onclick="goToCheckout()" class="btn btn-success py-3 rounded-pill w-100 fs-5" href="checkout.html">Checkout</button>
+                <button id="checkoutButton" onclick="goToCheckout()"
+                  class="btn btn-success py-3 rounded-pill w-100 fs-5" href="checkout.html">Checkout</button>
               </div>
               <div class="mt-3">
                 <a class="btn btn-outline-dark py-3 rounded-pill w-100 fs-5" href="products.html">Continue shopping</a>
