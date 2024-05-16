@@ -1,12 +1,45 @@
 import { products } from './products-data.js'
 
-let text = ''
-let count = 0
+const queryString = window.location.search
+const urlParams = new URLSearchParams(queryString)
+const searchQuery = urlParams.get('q')
 
-products.forEach(productsList)
+let text, count
 
-document.getElementById("count").innerHTML = count + ' products'
-document.getElementById("viewAll").innerHTML = text
+showeProducts()
+
+const highElement = document.getElementById("high")
+const lowElement = document.getElementById("low")
+
+highElement.addEventListener('click',() => {
+products.sort((a, b) => b.price - a.price)
+showeProducts()
+})
+
+lowElement.addEventListener('click',() => {
+  products.sort((a, b) => a.price - b.price)
+  showeProducts()
+  })
+
+function showeProducts() {
+  text = ''
+  count = 0
+
+  products.forEach(productsList)
+
+  document.getElementById("count").innerHTML = count + ' products'
+  document.getElementById("viewAll").innerHTML = text
+  
+  if (searchQuery != null) {
+    count = 0
+    searchFilter()
+    document.getElementById("view").innerHTML = 'SEARCH' + `<h5>"${searchQuery}"</h5>`
+    document.getElementById("count").innerHTML = count + ' products'
+  } else {
+    document.getElementById("view").innerHTML = 'PRODUCTS'
+  }
+  
+}
 
 function productsList(product) {
   count++
@@ -26,20 +59,6 @@ function productsList(product) {
 </div>`
 }
 
-const queryString = window.location.search
-const urlParams = new URLSearchParams(queryString)
-const searchQuery = urlParams.get('q')
-
-if (searchQuery != null) {
-  count = 0
-  searchFilter()
-  document.getElementById("view").innerHTML = 'SEARCH' + `<h5>"${searchQuery}"</h5>`
-  document.getElementById("count").innerHTML = count + ' products'
-} else {
-  document.getElementById("view").innerHTML = 'PRODUCTS'
-}
-
-
 function searchFilter() {
   let filter, list, a, i, txtValue
 
@@ -56,3 +75,4 @@ function searchFilter() {
     }
   }
 }
+
