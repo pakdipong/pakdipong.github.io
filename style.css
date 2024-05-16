@@ -92,6 +92,13 @@
     top: 140px;
 }
 
+.card-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
 @media only screen and (max-width: 576px) {
     .banner-img {
         height: 420px;
